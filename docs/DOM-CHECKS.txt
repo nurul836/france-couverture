@@ -1,0 +1,13 @@
+/: header, footer, h1, links, images, unique photography OK
+/services: header, footer, h1, links, images, unique photography OK
+/a-propos: header, footer, h1, links, images, unique photography OK
+/realisations: header, footer, h1, links, images, unique photography OK
+/zones: header, footer, h1, links, images, unique photography OK
+/contact: header, footer, h1, links, images, unique photography OK
+/informations: header, footer, h1, links, images, unique photography OK
+Services, FAQ, gallery filter and lightbox Escape OK
+320px: DOM navigation, disabled unconfigured form and phone alternative OK (layout not rendered)
+375px: DOM navigation, disabled unconfigured form and phone alternative OK (layout not rendered)
+430px: DOM navigation, disabled unconfigured form and phone alternative OK (layout not rendered)
+768px: DOM navigation, disabled unconfigured form and phone alternative OK (layout not rendered)
+No runtime errors.
