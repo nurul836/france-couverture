@@ -37,6 +37,7 @@ import "./fonts.css";
 import "./style.css";
 import photos from "./photos.json";
 import { siteConfig } from "./site-config";
+import { assetPath, routerBase } from "./paths";
 import { sendQuote, validQuoteEndpoint } from "./quote";
 const phone = "tel:+33756879110",
   maps = "https://maps.app.goo.gl/PKMfApK7X4pSrJ7Y7";
@@ -137,7 +138,7 @@ function Brand() {
   return (
     <Link className="brand" to="/" aria-label="France Couverture — accueil">
       <img
-        src="/brand/logo-white.svg"
+        src={assetPath("brand/logo-white.svg")}
         alt="France Couverture"
         width="235"
         height="66"
@@ -160,18 +161,8 @@ function Photo({
   return (
     <img
       className={className}
-      src={"/images/" + id + ".webp"}
-      srcSet={
-        "/images/" +
-        id +
-        "-small.webp " +
-        (photo?.smallWidth || 640) +
-        "w, /images/" +
-        id +
-        ".webp " +
-        (photo?.width || 1600) +
-        "w"
-      }
+      src={assetPath("images/" + id + ".webp")}
+      srcSet={`${assetPath("images/" + id + "-small.webp")} ${photo?.smallWidth || 640}w, ${assetPath("images/" + id + ".webp")} ${photo?.width || 1600}w`}
       sizes={priority ? "100vw" : "(max-width:640px) 100vw, 55vw"}
       alt={alt}
       loading={priority ? "eager" : "lazy"}
@@ -491,7 +482,7 @@ function Services({ full = false }: { full?: boolean }) {
             <AnimatePresence mode="wait">
               <motion.img
                 key={active}
-                src={"/images/" + services[active][2] + ".webp"}
+                src={assetPath("images/" + services[active][2] + ".webp")}
                 alt="Travaux de couverture — illustration"
                 initial={{
                   opacity: 0,
@@ -792,7 +783,7 @@ function Gallery({ full = false }: { full?: boolean }) {
             </button>
             <div onClick={(e) => e.stopPropagation()}>
               <img
-                src={"/images/" + gallery[selected][2] + ".webp"}
+                src={assetPath("images/" + gallery[selected][2] + ".webp")}
                 alt={gallery[selected][0]}
               />
               <h3>{gallery[selected][0]}</h3>
@@ -1487,7 +1478,7 @@ function RouteTransition() {
 function App() {
   return (
     <MotionConfig reducedMotion="user">
-      <BrowserRouter>
+      <BrowserRouter basename={routerBase}>
         <a href="#main" className="skip-link">
           Aller au contenu
         </a>
